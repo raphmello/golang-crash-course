@@ -24,14 +24,14 @@ package main
 //	return "Five of Diamonds"
 //}
 
+// cards[0:2] returns a slice containing index 0 and 1
+// cards[:2] returns a slice containing all indexes from beginning up to 1
+// cards[1:] returns a slice containing index 1 up to the end
 func main() {
-	cards := deck{"Ace of Diamonds", newCard()}
-	cards = append(cards, "Six of Spades")
-	cards.print()
-	printState()
+	cards := newDeck()
 
-}
+	hand, remainingCards := deal(cards, 4)
 
-func newCard() string {
-	return "Five of Diamonds"
+	hand.print()
+	remainingCards.print()
 }
